@@ -37,14 +37,12 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 
-/**
- * @author Jamalam360
- */
 public class JamModClientInit implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockEntityRendererRegistry.register(BlockRegistry.JAM_POT_ENTITY, JamPotBlockEntityRenderer::new);
 
+        // Set the render layer of the Jam Pot block to translucent
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.JAM_POT, RenderLayer.getTranslucent());
 
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> {
